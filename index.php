@@ -1,6 +1,9 @@
 <?php
 require 'autoload.php';
 
+use DataGetter\RSSDataGetter;
+use DataGetter\MysqlDataGetter;
+
 $sqlDataGetter = new MysqlDataGetter();
 $rssDataGetter = new RSSDataGetter();
 $a = new ArticleAgregator($sqlDataGetter, $rssDataGetter);

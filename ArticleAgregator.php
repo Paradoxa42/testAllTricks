@@ -1,12 +1,15 @@
 <?php
 
+use DataGetter\RSSDataGetter;
+use DataGetter\DatabaseDataGetterInterface;
+
 class ArticleAgregator implements IteratorAggregate
 {
     protected array $items = [];
-    private MysqlDataGetter $sqlGetter;
+    private DatabaseDataGetterInterface $sqlGetter;
     private RSSDataGetter $rssGetter;
 
-    public function __construct(MysqlDataGetter $sqlGetter, RSSDataGetter $rssGetter)
+    public function __construct(DatabaseDataGetterInterface $sqlGetter, RSSDataGetter $rssGetter)
     {
         $this->sqlGetter = $sqlGetter;
         $this->rssGetter = $rssGetter;

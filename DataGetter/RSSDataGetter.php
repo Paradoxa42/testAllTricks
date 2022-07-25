@@ -1,12 +1,14 @@
 <?php
 
+namespace DataGetter;
+
 class RSSDataGetter
 {
     public function getData(string $feedUrl): array
     {
         $items = [];
         $content = file_get_contents($feedUrl);
-        $a = new SimpleXMLElement($content);
+        $a = new \SimpleXMLElement($content);
 
         foreach($a->channel->item as $entry) {
             $items[] = [
